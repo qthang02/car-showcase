@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import NavBar from "@/app/components/navbar/NavBar";
 import Navabar from "@/app/components/navbar/NavBar";
 import Navbar from "@/app/components/navbar/NavBar";
+import ClientOnly from "@/app/components/ClientOnly";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,7 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
+        <ClientOnly>
+            <Navbar />
+        </ClientOnly>
         {children}
       </body>
     </html>
